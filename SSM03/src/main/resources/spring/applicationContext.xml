@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+                        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+                        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+    <!--1.开启spring注解驱动-->
+    <context:component-scan base-package="com.alex.service"/>
+    <!--2.读取db.properties配置文件-->
+    <context:property-placeholder location="classpath:mybatis/properties/db.properties"/>
+    <!--3.配置数据库连接池-->
+    <!--c3p0-->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverClass}"/>
+        <property name="jdbcUrl" value="${jdbc.Url}"/>
+        <property name="user" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+    <!--4.配置事务管理-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--事务管理数据库连接池-->
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--5.开启事务管理注解驱动 @Transactional-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--6.spring管理mybatis配置文件-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--dataSource属性指定要用的连接池,ref映射的是id=dataSource的bean标签,读取四大参数-->
+        <property name="dataSource" ref="dataSource"/>
+        <!--configLocation属性指定mybatis的核心配置文件,来管理mybatis配置文件-->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+        <!--mapperLocations属性指定所有配置的mapper文件,mybatis的实体类配置文件,所有的sql映射文件-->
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"/>
+    </bean>
+    <!--7.sping管理mybatis映射接口和sql映射文件之间的关系-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.alex.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+    </bean>
+    <!--文件上传配置,若没有该配置 MultipartFile file对象将为null-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!--文件名编码格式:UTF-8-->
+        <property name="defaultEncoding" value="UTF-8"/>
+        <!--单个文件大小:最大1M-->
+        <property name="maxUploadSizePerFile" value="1048576"/>
+        <!--总文件大小:最大10M-->
+        <property name="maxUploadSize" value="10485760"/>
+    </bean>
+</beans>

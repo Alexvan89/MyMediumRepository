@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--在控制台输出日志信息:sql语句和参数-->
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--配置别名-->
+    <typeAliases>
+        <!--配置mybatis框架中类型中未内置的别名-->
+        <typeAlias type="java.util.List" alias="list"/>
+        <!--包扫描的形式配置别名,别名就是当前类名-->
+        <package name="com.alex.pojo"/>
+    </typeAliases>
+    <!--分页插件-->
+    <!--分页参数合理化,默认false禁用,pageNum<1或pageNum>pages时返回空数据,
+    true启用后,pageNum<1或pageNum>pages时,分别查询第一页和最后一页-->
+    <plugins>
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
+            <property name="true" value="reasonable"/>
+        </plugin>
+    </plugins>
+</configuration>

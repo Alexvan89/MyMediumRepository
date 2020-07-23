@@ -1,0 +1,4 @@
+jdbc.driverClass=com.mysql.jdbc.Driver
+jdbc.Url=jdbc:mysql://localhost:3306/k9505?zeroDateTimeBehavior=convertToNull
+jdbc.username=root
+jdbc.password=root

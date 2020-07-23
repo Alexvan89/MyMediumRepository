@@ -1,0 +1,16 @@
+com\alex\pojo\Dep.class
+com\alex\pojo\DepExample$Criteria.class
+com\alex\service\IEmpService.class
+com\alex\pojo\EmpExample$GeneratedCriteria.class
+com\alex\pojo\DepExample$Criterion.class
+com\alex\mapper\EmpMapper.class
+com\alex\mapper\DepMapper.class
+com\alex\service\impl\EmpServiceImpl.class
+com\alex\pojo\Emp.class
+com\alex\pojo\EmpExample$Criteria.class
+com\alex\pojo\EmpExample$Criterion.class
+com\alex\pojo\DepExample$GeneratedCriteria.class
+com\alex\pojo\EmpExample.class
+com\alex\pojo\EmpCreteria.class
+com\alex\pojo\DepExample.class
+com\alex\controller\EmpController.class
