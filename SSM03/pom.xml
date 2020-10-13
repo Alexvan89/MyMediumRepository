@@ -25,7 +25,7 @@
       <!--单元测试所需依赖:junit-->
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>4.11</version>
+      <version>4.13.1</version>
     </dependency>
     <!--日志-->
     <!--apache.common.logging是一种log的框架接口,log4j是具体的日志实现,真正负责"写"日志的这个功能-->
