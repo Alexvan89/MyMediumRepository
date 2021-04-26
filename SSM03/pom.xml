@@ -207,7 +207,7 @@
     <dependency><!--commons-io:处理io流的工具，封装了很多处理io流和文件的方法-->
       <groupId>commons-io</groupId>
       <artifactId>commons-io</artifactId>
-      <version>2.2</version>
+      <version>2.7</version>
     </dependency>
     <dependency>
       <groupId>commons-logging</groupId>
