@@ -144,7 +144,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-expression</artifactId>
-      <version>4.3.7.RELEASE</version>
+      <version>5.2.21.RELEASE</version>
     </dependency>
     <!--整合jackjson库--><!--用于将Java Bean序列化为JSON字符串，也可以从JSON字符串反序列化到JavaBean-->
     <dependency>
