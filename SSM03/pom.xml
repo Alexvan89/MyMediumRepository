@@ -109,7 +109,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>4.3.7.RELEASE</version>
+      <version>5.2.20.RELEASE</version>
     </dependency>
     <!-- 四.spring test-->
     <!--spring-test:对junit等测试框架的简单封装 有范围-->
