@@ -77,7 +77,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-beans</artifactId>
-      <version>4.3.7.RELEASE</version>
+      <version>5.2.20.RELEASE</version>
     </dependency>
     <!--3.spring-context:为spring核心提供大量扩展,可以找到使用spring ApplicationContext特性所需的全部标签及所需要的全部的类,instrumentation组件及校验Validation方面的相关类-->
     <dependency>
